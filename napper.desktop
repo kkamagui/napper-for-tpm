@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Napper for checking a TPM vulnerability
+Comment=TPM vulnerability checking tool for CVE-2018-6622 related to S3 sleep.
+Exec=sudo -H /home/napper/napper-for-tpm/napper.py wait
+Path=/home/napper//napper-for-tpm
+Icon=/usr/share/icons/Humanity/apps/32/gnome-inhibit-applet.svg
+Terminal=true
+Type=Application
+Categories=Utility;Development;

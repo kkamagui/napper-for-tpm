@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+#                            Napper 
+#                         ------------
+#        TPM vulnerability checking tool for CVE-2018-6622 
+#
+#               Copyright (C) 2019 Seunghun Han
+#     at National Security Research Institute of South Korea
+#    Project link: https://github.com/kkamagui/napper-for-tpm
+#
+echo "====================================="
+echo "Install packages to build TPM2-tools."
+echo "====================================="
+sudo apt install autoconf autoconf-archive debhelper dh-autoreconf libcurl4-gnutls-dev libssl-dev libtool libsapi-dev pkg-config xsltproc docbook-xsl python2.7
+
+echo ""
+echo "========================================="
+echo "Clone TPM2-tools repository and build it."
+echo "========================================="
+git clone -b tpm2_vuln_test https://github.com/kkamagui/tpm2-tools.git
+cd tpm2-tools
+./bootstrap
+./configure
+make -j
+sudo make install
+cd ..
+
+echo ""
+echo "=============================="
+echo "Install TPM resource manager."
+echo "=============================="
+sudo apt install libsapi-utils
+
+echo ""
+echo "==========================="
+echo "Build Napper kernel module."
+echo "==========================="
+cd napper-driver
+make -j
+cd ..
+
+echo "Finished."
