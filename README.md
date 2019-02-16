@@ -305,9 +305,11 @@ We prepared this section for you. Please feel free to contact us.
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
 
-| BIOS Manufacturer | BIOS Version | BIOS Release Date | TPM Manufacturers | TPM Firmware Version |
-| ----------------- | ------------ | ----------------- | ----------------- | -------------------- |
-| This              | fields       | will              | be                | updated soon.        |
+| Model               | BIOS Vendor | BIOS Version                      | BIOS Release Date (MM/DD/YY) | TPM 2.0 Manufacturer | Vendor String | TPM Firmware Version | Status     |
+| ------------------- | ----------- | --------------------------------  | ---------------------------- | --------------------- | ------------- | -------------------- | ---------- |
+| Intel NUC5i5MYHE    | Intel       | MYBDWi5v.86A. 0049.2018. 1107.1046  | 11/07/2018                   | Infineon (IFX)        | SLB9665       | 5.28.7.B302  | **Vulnerable** | 
+| Dell Optiplex 7040  | Dell        | 1.11.1                            | 10/10/2018                   | NTC                   | rls NPCT      | 1.3.2.8  | **Vulnerable** |
+| Dell Optiplex 7050  | Dell        | 1.11.0                            | 11/01/2018                   | NTC                   | rls NPCT      | 1.3.2.8  | **Vulnerable** |
 
 # 7. Known Issues
  - Some machines turn off the power of a USB storage while S3 sleep and could not connect it again. In this case, please plug the USB storage into "always powered port" of your system.
