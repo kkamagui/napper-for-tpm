@@ -1,0 +1,24 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is vulnerable.
+        Please download the newest BIOS firmware from the manufacturer's site and update it.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX
+        Vendor strings: SLB9  665   
+        Firmware Version: 00050028 0007B302 
+        Revision: 116
+        Year: 2014
+        Day of year: 303
+
+    [*] System information.
+        System manufacturer:                                  
+        System product name:                                  
+        Baseboard manufacturer: Intel Corporation
+        Baseboard product name: NUC5i5MYBE
+        Baseboard version: H47797-205
+        BIOS vendor: Intel Corporation
+        BIOS version: MYBDWi5v.86A.0049.2018.1107.1046
+        BIOS release date: 11/07/2018
+
+    [*] Please press "Enter" key to exit.
+

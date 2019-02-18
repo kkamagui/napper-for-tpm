@@ -1,0 +1,22 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is vulnerable.
+        Please download the latest BIOS firmware from the manufacturer's site and update it.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX
+        Vendor strings: SLB9  665   
+        Firmware Version: 00050033 00083200 
+        Revision: 116
+        Year: 2015
+        Day of year: 209
+
+    [*] System information.
+        Baseboard manufacturer: ASUSTeK COMPUTER INC.
+        Baseboard product name: Q170M-C
+        Baseboard version: Rev X.0x
+        BIOS vendor: American Megatrends Inc.
+        BIOS version: 4001
+        BIOS release date: 11/09/2018
+        System manufacturer: System manufacturer
+        System product name: System Product Name
+

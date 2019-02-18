@@ -1,0 +1,24 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is vulnerable.
+        Please download the newest BIOS firmware from the manufacturer's site and update it.
+
+    [*] TPM v2.0 information.
+        Manufacturer: NTC
+        Vendor strings: rls  NPCT     
+        Firmware Version: 00010003 00020008 
+        Revision: 116
+        Year: 2015
+        Day of year: 167
+
+    [*] System information.
+        System manufacturer: Dell Inc.
+        System product name: OptiPlex 7040
+        Baseboard manufacturer: Dell Inc.
+        Baseboard product name: 096JG8
+        Baseboard version: A00
+        BIOS vendor: Dell Inc.
+        BIOS version: 1.11.1
+        BIOS release date: 10/10/2018
+
+    [*] Please press "Enter" key to exit.
+

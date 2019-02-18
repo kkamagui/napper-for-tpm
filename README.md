@@ -305,11 +305,15 @@ We prepared this section for you. Please feel free to contact us.
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
 
-| Model               | BIOS Vendor | BIOS Version                      | BIOS Release Date (MM/DD/YY) | TPM 2.0 Manufacturer | Vendor String | TPM Firmware Version | Status     |
-| ------------------- | ----------- | --------------------------------  | ---------------------------- | --------------------- | ------------- | -------------------- | ---------- |
-| Intel NUC5i5MYHE    | Intel       | MYBDWi5v.86A. 0049.2018. 1107.1046  | 11/07/2018                   | Infineon (IFX)        | SLB9665       | 5.28.7.B302  | **Vulnerable** | 
-| Dell Optiplex 7040  | Dell        | 1.11.1                            | 10/10/2018                   | NTC                   | rls NPCT      | 1.3.2.8  | **Vulnerable** |
-| Dell Optiplex 7050  | Dell        | 1.11.0                            | 11/01/2018                   | NTC                   | rls NPCT      | 1.3.2.8  | **Vulnerable** |
+| Model               | BIOS Vendor              | BIOS Version                       | BIOS Release Date (MM/DD/YY) | TPM 2.0 Manufacturer  | Vendor String | TPM Firmware Version | Status         |
+| ------------------- | ------------------------ | ---------------------------------- | ---------------------------- | --------------------- | ------------- | -------------------- | -------------- |
+| ASUS Q170M-C        | American Megatrends Inc. | 4001                               | 11/09/2018                   | Infineon (IFX)        | SLB9665       | 5.51.8.12800         | **Vulnerable** |
+| Dell Optiplex 7040  | Dell                     | 1.11.1                             | 10/10/2018                   | NTC                   | rls NPCT      | 1.3.2.8              | **Vulnerable** |
+| Dell Optiplex 7050  | Dell                     | 1.11.0                             | 11/01/2018                   | NTC                   | rls NPCT      | 1.3.2.8              | **Vulnerable** |
+| GIGABYTE H170-D3HP  | American Megatrends Inc. | F20g                               | 03/09/2018                   | Infineon (IFX)        | SLB9665       | 5.61.10.57600        | **Vulnerable** |
+| GIGABYTE Q170M-MK   | American Megatrends Inc. | F23                                | 04/12/2018                   | Infineon (IFX)        | SLB9665       | 5.51.8.12802         | **Vulnerable** |
+| Intel NUC5i5MYHE    | Intel                    | MYBDWi5v.86A. 0049.2018. 1107.1046 | 11/07/2018                   | Infineon (IFX)        | SLB9665       | 5.40.7.45826         | **Vulnerable** | 
+ 
 
 # 7. Known Issues
  - Some machines turn off the power of a USB storage while S3 sleep and could not connect it again. In this case, please plug the USB storage into "always powered port" of your system.

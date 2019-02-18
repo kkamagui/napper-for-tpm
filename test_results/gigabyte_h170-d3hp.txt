@@ -1,0 +1,22 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is vulnerable.
+        Please download the latest BIOS firmware from the manufacturer's site and update it.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX
+        Vendor strings: SLB9  665   
+        Firmware Version: 0005003D 000AE100 
+        Revision: 116
+        Year: 2016
+        Day of year: 15
+
+    [*] System information.
+        Baseboard manufacturer: Gigabyte Technology Co., Ltd.
+        Baseboard product name: H170-D3HP-CF
+        Baseboard version: x.x
+        BIOS vendor: American Megatrends Inc.
+        BIOS version: F20g
+        BIOS release date: 03/09/2018
+        System manufacturer: Gigabyte Technology Co., Ltd.
+        System product name: H170-D3HP
+
