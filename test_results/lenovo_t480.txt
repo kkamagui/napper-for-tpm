@@ -1,0 +1,21 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is safe.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX
+        Vendor strings: SLB9  670   
+        Firmware Version: 0007003F 000D1900 
+        Revision: 116
+        Year: 2016
+        Day of year: 265
+
+    [*] System information.
+        Baseboard manufacturer: LENOVO
+        Baseboard product name: 20L5A00TKR
+        Baseboard version: SDK0J40709 WIN
+        BIOS vendor: LENOVO
+        BIOS version: N24ET44W (1.19 )
+        BIOS release date: 11/07/2018
+        System manufacturer: LENOVO
+        System product name: 20L5A00TKR
+
