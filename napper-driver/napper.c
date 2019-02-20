@@ -21,7 +21,9 @@ MODULE_DESCRIPTION("Napper kernel module for checking a TPM vulnerability");
 typedef void *(*TEXT_POKE) (void *addr, const void *opcode, size_t len);
 
 TEXT_POKE g_fn_text_poke;
-unsigned char g_org_op_code;
+// XOR RAX, RAX; RET
+unsigned char g_ret_op_code[] = {0x48, 0x31, 0xc0, 0xc3};
+unsigned char g_org_op_code[sizeof(g_ret_op_code)];
 unsigned long g_tpm_suspend_addr;
 
 /**
@@ -53,9 +55,6 @@ void print_banner(void)
  */
 static int __init napper_init(void) 
 {
-	// XOR RAX, RAX; RET	
-	unsigned char ret_op_code[] = {0x48, 0x31, 0xc0, 0xc3};
-
 	// Find functions
 	g_fn_text_poke = (TEXT_POKE) kallsyms_lookup_name("text_poke");
 	g_tpm_suspend_addr = kallsyms_lookup_name("tpm_pm_suspend");
@@ -69,8 +68,8 @@ static int __init napper_init(void)
 	printk(KERN_INFO "napper: \n");
 
 	// Backup first byte of tpm_suspend_addr function and patch it to xor and ret.
-	g_org_op_code = *(unsigned char*) g_tpm_suspend_addr;
-	g_fn_text_poke((void*) g_tpm_suspend_addr, ret_op_code, sizeof(ret_op_code));
+	memcpy(g_org_op_code, (unsigned char*) g_tpm_suspend_addr, sizeof(g_org_op_code));
+	g_fn_text_poke((void*) g_tpm_suspend_addr, g_ret_op_code, sizeof(g_ret_op_code));
 
 	printk(KERN_INFO "napper: patched code of tpm_pm_suspend\n");
 	print_hex_dump(KERN_INFO, "napper: ", DUMP_PREFIX_ADDRESS,
@@ -86,7 +85,7 @@ static int __init napper_init(void)
 static void __exit napper_exit(void) 
 { 
 	printk(KERN_INFO "napper: recover code of tpm_pm_suspend\n");
-	g_fn_text_poke((void*) g_tpm_suspend_addr, &g_org_op_code, 1);
+	g_fn_text_poke((void*) g_tpm_suspend_addr, g_org_op_code, sizeof(g_org_op_code));
 } 
 
 module_init(napper_init); 
