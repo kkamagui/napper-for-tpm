@@ -303,19 +303,23 @@ The root cause of CVE-2018-6622 is improper handling of an abnormal S3 sleep cas
 We prepared this section for you. Please feel free to contact us.
 
  - [Juneseok Byun](https://www.facebook.com/byunjuneseok) at Lab, the 2nd brain & the 3rd eye of Hongik University
+ - [JaeRyoung Oh](https://twitter.com/h4z3dic), CEO of Blackfort Security, Inc.
+ - [Gwan-gyeong Mun](https://www.facebook.com/gwangyeong.mun.0), Researcher at Intel
 
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
 
 | Model               | Status         | BIOS Vendor              | BIOS Version                       | BIOS Release Date (MM/DD/YY) | TPM 2.0 Manufacturer  | Vendor String | TPM Firmware Version | 
-| ------------------- | -------------- | ------------------------ | ---------------------------------- | ---------------------------- | --------------------- | ------------- | -------------------- |
+| ------------------- | :------------: | ------------------------ | ---------------------------------- | ---------------------------- | --------------------- | ------------- | -------------------- |
 | ASUS Q170M-C        | **Vulnerable** | American Megatrends Inc. | 4001                               | 11/09/2018                   | Infineon (IFX)        | SLB9665       | 5.51.8.12800         |
 | Dell Optiplex 7040  | **Vulnerable** | Dell                     | 1.11.1                             | 10/10/2018                   | NTC                   | rls NPCT      | 1.3.2.8              |
 | Dell Optiplex 7050  | **Vulnerable** | Dell                     | 1.11.0                             | 11/01/2018                   | NTC                   | rls NPCT      | 1.3.2.8              |
 | GIGABYTE H170-D3HP  | **Vulnerable** | American Megatrends Inc. | F20g                               | 03/09/2018                   | Infineon (IFX)        | SLB9665       | 5.61.10.57600        |
 | GIGABYTE Q170M-MK   | **Vulnerable** | American Megatrends Inc. | F23                                | 04/12/2018                   | Infineon (IFX)        | SLB9665       | 5.51.8.12802         |
+| HP Spectre x360     | **Vulnerable** | American Megatrends      | F.24                               | 01/07/2019                   | Infineon (IFX)        | SLB9665       | 5.62.12.13824        |
 | Intel NUC5i5MYHE    | **Vulnerable** | Intel                    | MYBDWi5v.86A. 0049.2018. 1107.1046 | 11/07/2018                   | Infineon (IFX)        | SLB9665       | 5.40.7.45826         |
 | Lenovo T480 (20L5A00TKR) | **Safe**  | Lenovo                   | N24ET44W (1.19 )                   | 11/07/2018                   | Infineon (IFX)        | SLB9670       | 7.63.14.6400         |
+| Lenovo T580         | **Safe**       | Lenovo                   | N27ET20W (1.06 )                   | 01/22/2018                   | STMicroelectronics    |               | 73.4.17568.4452      |
  
 
 # 7. Known Issues

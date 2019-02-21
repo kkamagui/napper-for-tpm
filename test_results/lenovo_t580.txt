@@ -1,0 +1,20 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is safe.
+
+    [*] TPM v2.0 information.
+        Manufacturer: STM 
+        Vendor strings:      
+        Firmware Version: 00490004 44A01164 
+        Revision: 116
+        Year: 2016
+        Day of year: 265
+
+    [*] System information.
+        Baseboard manufacturer: LENOVO
+        Baseboard product name: 
+        Baseboard version: 
+        BIOS vendor: LENOVO
+        BIOS version: N27ET20W (1.06 )
+        BIOS release date: 01/22/2018
+        System manufacturer: LENOVO
+        System product name: 

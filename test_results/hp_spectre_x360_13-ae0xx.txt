@@ -1,0 +1,22 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is vulnerable.
+        Please download the latest BIOS firmware from the manufacturer's site and update it.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX
+        Vendor strings: SLB9  665   
+        Firmware Version: 0005003E 000C3600 
+        Revision: 116
+        Year: 2016
+        Day of year: 15
+
+    [*] System information.
+        Baseboard manufacturer: HP
+        Baseboard product name: 83B9
+        Baseboard version: 56.43
+        BIOS vendor: AMI
+        BIOS version: F.24
+        BIOS release date: 01/07/2019
+        System manufacturer: HP
+        System product name: HP Spectre x360 Convertible 13-ae0xx
+
