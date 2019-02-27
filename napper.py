@@ -36,7 +36,7 @@ def show_banner():
     banner = """\
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," """ + GREEN + 'Napper v 1.0 for TPM' + ENDC + """ ,"|        ,"        ,"  |
+              ," """ + GREEN + 'Napper v 1.1 for TPM' + ENDC + """ ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------""" + GREEN + BLINK + 'Z' + ENDC + """  |  |     +---------+      |
              |  |               """ + GREEN + BLINK + 'Z' + ENDC + """ |  |  |     | -==----'|      |
@@ -52,7 +52,7 @@ def show_banner():
          `-----------------------------'    '----------"
 
 """ + \
-    GREEN + '        Napper v1.0 for checking a TPM vulnerability, CVE-2018-6622\n' + ENDC + \
+    GREEN + '        Napper v1.1 for checking a TPM vulnerability, CVE-2018-6622\n' + ENDC + \
     '             Made by Seunghun Han, https://kkamagui.github.io\n' + \
     '         Project link: https://github.com/kkamagui/napper-for-tpm \n'
     print banner

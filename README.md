@@ -1,7 +1,7 @@
 ```
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," Napper v 1.0 for TPM ,"|        ,"        ,"  |
+              ," Napper v 1.1 for TPM ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------Z  |  |     +---------+      |
              |  |               Z |  |  |     | -==----'|      |
@@ -16,7 +16,7 @@
          / ==ooooooooooooooo==.o.  ooo= /    ,`\--{-D)  ,"
          `-----------------------------'    '----------"
 
-        Napper v1.0 for checking a TPM vulnerability, CVE-2018-6622
+        Napper v1.1 for checking a TPM vulnerability, CVE-2018-6622
          Project link: https://github.com/kkamagui/napper-for-tpm 
         Please contribute your summary report to the Napper project!                    
 ```
@@ -305,6 +305,7 @@ We prepared this section for you. Please feel free to contact us.
  - [Juneseok Byun](https://www.facebook.com/byunjuneseok) at Lab, the 2nd brain & the 3rd eye of Hongik University
  - [JaeRyoung Oh](https://twitter.com/h4z3dic), CEO of Blackfort Security, Inc.
  - [Gwan-gyeong Mun](https://www.facebook.com/gwangyeong.mun.0), Researcher at Intel
+ - [Junyoung Jung](https://www.facebook.com/sauber92) at Mobile & Embedded System Lab. of Kyung Hee University
 
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
