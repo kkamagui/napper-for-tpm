@@ -9,7 +9,7 @@
 #     at National Security Research Institute of South Korea
 #    Project link: https://github.com/kkamagui/napper-for-tpm
 #
-import commands
+import subprocess
 import os
 import sys
 from time import sleep
@@ -36,7 +36,7 @@ def show_banner():
     banner = """\
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," """ + GREEN + 'Napper v 1.1 for TPM' + ENDC + """ ,"|        ,"        ,"  |
+              ," """ + GREEN + 'Napper v 1.2 for TPM' + ENDC + """ ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------""" + GREEN + BLINK + 'Z' + ENDC + """  |  |     +---------+      |
              |  |               """ + GREEN + BLINK + 'Z' + ENDC + """ |  |  |     | -==----'|      |
@@ -52,7 +52,7 @@ def show_banner():
          `-----------------------------'    '----------"
 
 """ + \
-    GREEN + '        Napper v1.1 for checking a TPM vulnerability, CVE-2018-6622\n' + ENDC + \
+    GREEN + '        Napper v1.2 for checking a TPM vulnerability, CVE-2018-6622\n' + ENDC + \
     '             Made by Seunghun Han, https://kkamagui.github.io\n' + \
     '         Project link: https://github.com/kkamagui/napper-for-tpm \n'
     print banner
@@ -70,7 +70,11 @@ def color_print(message, color):
 def check_tpm_version():
     tpm_version = ""
     print '    [*] Checking TPM version...',
-    result, output = commands.getstatusoutput('journalctl -b | grep "TPM"')
+    try:
+        output = subprocess.check_output('journalctl -b | grep "TPM"', shell=True)
+    except:
+        output = ''
+
     if '2.0 TPM' in output:
         color_print('TPM v2.0.', SUCCESS)
         tpm_version = '2.0'
@@ -88,7 +92,11 @@ def check_tpm_version():
 def check_and_run_resource_manager():
     print '    [*] Checking the resource manager process...',
 
-    result, output = commands.getstatusoutput('ps -e | grep resourcemgr')
+    try:
+        output = subprocess.check_output('ps -e | grep resourcemgr', shell=True)
+    except:
+        output = ''
+
     # Already running.
     if 'resourcemgr' in output:
         color_print('Running.', SUCCESS)
@@ -99,7 +107,10 @@ def check_and_run_resource_manager():
     # Start the resource manager
     pid = os.fork()
     if (pid == 0):
-        result, output = commands.getstatusoutput('resourcemgr > /dev/null')
+        try:
+            subprocess.call('resourcemgr > /dev/null', shell=True)
+        except:
+            print '    [*] resoucemgr error'
         sys.exit(0)
     else:
         sleep(3)
@@ -112,18 +123,22 @@ def check_and_run_resource_manager():
 def check_and_run_vuln_testing_module():
     print '    [*] Checking the TPM vulnerability testing module...',
 
-    result, output = commands.getstatusoutput('lsmod | grep napper')
+    try:
+        output = subprocess.check_output('lsmod | grep napper', shell=True)
+    except:
+        output = ''
+
     # Already running.
     if 'napper' in output:
         color_print("Running.", SUCCESS)
         return 0
 
-    result, output = commands.getstatusoutput('insmod napper-driver/napper.ko')
-    if (result != 0):
+    try:
+        subprocess.call('insmod napper-driver/napper.ko', shell=True)
+        color_print("Starting.", SUCCESS)
+    except:
         color_print("Fail.", FAIL)
         return -1
-    else:
-        color_print("Starting.", SUCCESS)
  
     return 0
 
@@ -149,9 +164,16 @@ def sleep_system():
 #
 def check_pcrs_all_zeros():
     print '\n    [*] Reading PCR values of TPM and checking a vulnerability...',
-    result, output = commands.getstatusoutput('tpm2_listpcrs')
-    if (result != 0):
+    try:
+        output = subprocess.check_output('tpm2_listpcrs -g 0x04', shell=True)
+    except:
         return -1, False
+
+    try:
+        output_sha256 = subprocess.check_output('tpm2_listpcrs -g 0x0b', shell=True)
+        output += output_sha256
+    except:
+        output += '\n'
 
     vulnerable = True
     for line in output.splitlines():
@@ -179,9 +201,17 @@ def check_pcrs_all_zeros():
 #
 def extend_pcrs():
     print '\n    [*] Extending 0xdeadbeef to all static PCRs.'
-    result, output = commands.getstatusoutput('tpm2_extendpcrs')
-    if (result != 0):
+
+    try:
+        output = subprocess.check_output('tpm2_extendpcrs -g 0x04', shell=True)
+    except:
         return -1
+
+    try:
+        output_sha256 = subprocess.check_output('tpm2_extendpcrs -g 0x0b', shell=True)
+        output += output_sha256
+    except:
+        output += '\n'
 
     # Show PCR values
     print "    [*] Show all PCR values:",
@@ -195,8 +225,10 @@ def extend_pcrs():
 #
 def show_system_info():
     print '    [*] TPM v2.0 information.'
-    result, output = commands.getstatusoutput('tpm2_getinfo')
-    if (result != 0):
+    try:
+        output = subprocess.check_output('tpm2_getinfo', shell=True)
+    except:
+        print "    [*] tpm2_getinfo error"
         return -1
 
     # Show PCR values
@@ -204,22 +236,25 @@ def show_system_info():
         print "       ", line
 
     print '\n    [*] System information.'
-    result, output = commands.getstatusoutput('dmidecode -s baseboard-manufacturer')
-    print '        Baseboard manufacturer: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s baseboard-product-name')
-    print '        Baseboard product name: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s baseboard-version')
-    print '        Baseboard version: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s bios-vendor')
-    print '        BIOS vendor: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s bios-version')
-    print '        BIOS version: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s bios-release-date')
-    print '        BIOS release date: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s system-manufacturer')
-    print '        System manufacturer: ' + output
-    result, output = commands.getstatusoutput('dmidecode -s system-product-name')
-    print '        System product name: ' + output
+    try:
+	    output = subprocess.check_output('dmidecode -s baseboard-manufacturer', shell=True)
+	    print '        Baseboard manufacturer: ' + output,
+	    output = subprocess.check_output('dmidecode -s baseboard-product-name', shell=True)
+	    print '        Baseboard product name: ' + output,
+	    output = subprocess.check_output('dmidecode -s baseboard-version', shell=True)
+	    print '        Baseboard version: ' + output,
+	    output = subprocess.check_output('dmidecode -s bios-vendor', shell=True)
+	    print '        BIOS vendor: ' + output,
+	    output = subprocess.check_output('dmidecode -s bios-version', shell=True)
+	    print '        BIOS version: ' + output,
+	    output = subprocess.check_output('dmidecode -s bios-release-date', shell=True)
+	    print '        BIOS release date: ' + output,
+	    output = subprocess.check_output('dmidecode -s system-manufacturer', shell=True)
+	    print '        System manufacturer: ' + output,
+	    output = subprocess.check_output('dmidecode -s system-product-name', shell=True)
+	    print '        System product name: ' + output,
+    except:
+        print '    [*] dmidecode error.'
 
     return 0
 

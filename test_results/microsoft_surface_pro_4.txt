@@ -1,0 +1,20 @@
+Summary. Please contribute summary below to the Napper project, https://www.github.com/kkamagui/napper-for-tpm.
+    [*] Your TPM version is 2.0, and it is safe.
+
+    [*] TPM v2.0 information.
+        Manufacturer: IFX 
+        Vendor strings: SLB9  665   
+        Firmware Version: 0005003E 000C3602 
+        Revision: 116
+        Year: 2016
+        Day of year: 15
+
+    [*] System information.
+        Baseboard manufacturer: Microsoft Corporation
+        Baseboard product name: Surface Pro 4
+        Baseboard version: Not Specified
+        BIOS vendor: Microsoft Corporation
+        BIOS version: 108.2439.769
+        BIOS release date: 12/07/2018
+        System manufacturer: Microsoft Corporation
+        System product name: Surface Pro 4

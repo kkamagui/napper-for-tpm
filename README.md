@@ -1,7 +1,7 @@
 ```
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," Napper v 1.1 for TPM ,"|        ,"        ,"  |
+              ," Napper v1.2 for TPM ," |        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------Z  |  |     +---------+      |
              |  |               Z |  |  |     | -==----'|      |
@@ -16,7 +16,7 @@
          / ==ooooooooooooooo==.o.  ooo= /    ,`\--{-D)  ,"
          `-----------------------------'    '----------"
 
-        Napper v1.1 for checking a TPM vulnerability, CVE-2018-6622
+        Napper v1.2 for checking a TPM vulnerability, CVE-2018-6622
          Project link: https://github.com/kkamagui/napper-for-tpm 
         Please contribute your summary report to the Napper project!                    
 ```
@@ -302,10 +302,12 @@ The root cause of CVE-2018-6622 is improper handling of an abnormal S3 sleep cas
 # 5. Contributions
 We prepared this section for you. Please feel free to contact us.
 
+ - [Gwan-gyeong Mun](https://www.facebook.com/gwangyeong.mun.0), researcher at Intel
  - [Juneseok Byun](https://www.facebook.com/byunjuneseok) at Lab, the 2nd brain & the 3rd eye of Hongik University
  - [JaeRyoung Oh](https://twitter.com/h4z3dic), CEO of Blackfort Security, Inc.
- - [Gwan-gyeong Mun](https://www.facebook.com/gwangyeong.mun.0), Researcher at Intel
  - [Junyoung Jung](https://www.facebook.com/sauber92) at Mobile & Embedded System Lab. of Kyung Hee University
+ - Matt Oh
+ - [Seong Bin Park](https://github.com/0a777h), anti-cheat engine developer and malware researcher at wellbia.com
 
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
@@ -321,6 +323,7 @@ We will update this field with your contributions. We are testing several device
 | Intel NUC5i5MYHE    | **Vulnerable** | Intel                    | MYBDWi5v.86A. 0049.2018. 1107.1046 | 11/07/2018                   | Infineon (IFX)        | SLB9665       | 5.40.7.45826         |
 | Lenovo T480 (20L5A00TKR) | **Safe**  | Lenovo                   | N24ET44W (1.19 )                   | 11/07/2018                   | Infineon (IFX)        | SLB9670       | 7.63.14.6400         |
 | Lenovo T580         | **Safe**       | Lenovo                   | N27ET20W (1.06 )                   | 01/22/2018                   | STMicroelectronics    |               | 73.4.17568.4452      |
+| Microsoft Surface Pro 4 | **Safe**   | Microsoft Corporation    | 108.2439.769                       | 12/07/2018                   | Infineon (IFX)        | SLB9665       | 5.62.12.13826        |
  
 
 # 7. Known Issues

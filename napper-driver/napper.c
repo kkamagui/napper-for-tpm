@@ -43,7 +43,7 @@ void print_banner(void)
 	printk(KERN_INFO "napper:                     | zz      | zz\n");
 	printk(KERN_INFO "napper:                     |__/      |__/\n");
 	printk(KERN_INFO "napper: \n");
-	printk(KERN_INFO "napper:      v1.1 for checking a TPM vulnerability, CVE-2018-6622\n");
+	printk(KERN_INFO "napper:      v1.2 for checking a TPM vulnerability, CVE-2018-6622\n");
 	printk(KERN_INFO "napper:        Made by Seunghun Han, https://kkamagui.github.io\n");
 	printk(KERN_INFO "napper:    Project link: https://github.com/kkamagui/napper-for-tpm\n");
 	printk(KERN_INFO "napper: \n");
