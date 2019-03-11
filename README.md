@@ -45,7 +45,7 @@ TPM has been widely deployed in commodity devices to provide a strong foundation
 
 The vulnerabilities we found can subvert the TPM with Advanced Configuration and Power Interface (ACPI). ACPI in PCs, laptops, and servers provide six sleeping states (S0-S5) for reducing power consumption. When the system enters the sleeping state, CPU, device, and RAM are powered off. Since the system powers the components off including security devices, the system should reinitialize them while waking up and this could be the attack surface. We found vulnerabilities on this attack surface without physical access.
 
-To mitigate the vulnerabilities, we also present countermeasures and a new tool, "Napper," to check the vulnerabilities of the TPM. Napper is a bootable USB device based-on Linux, and it has a kernel module and a vulnerability checking software. When you boot a system with the Napper, it makes your system to take a nap to check the vulnerabilities and to report the result to you.
+To mitigate the vulnerabilities, we also present countermeasures and a new tool, "Napper," to check the vulnerabilities of the TPM. Napper is a bootable USB device based-on Linux, and it has a kernel module and a vulnerability checking software. When you boot a system with the Napper, it makes your system take a nap to check the vulnerabilities and to report the result to you.
 
 # 3. How to Use the "Napper" Tool
 Napper consists of a special kernel module and customized tpm2 tools. Napper is based on Ubuntu 18.04, and we customized and tailored it to make a Live CD image. If you just want to check the TPM vulnerability and find an easy way for it, please move to Section 3.1 and use Napper Live CD image with your USB storage. Napper Live CD has not only a binary tool but also full source code of Napper. If you are using Ubuntu 18.04 now and want to build Napper from scratch, please move to Section 3.2 and build it.
@@ -308,6 +308,7 @@ We prepared this section for you. Please feel free to contact us.
  - [Junyoung Jung](https://www.facebook.com/sauber92) at Mobile & Embedded System Lab. of Kyung Hee University
  - Matt Oh
  - [Seong Bin Park](https://github.com/0a777h), anti-cheat engine developer and malware researcher at wellbia.com
+ - [Sung Ki Park](https://facebook.com/windowstory), Microsoft MVP in Windows and device for IT
 
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
@@ -329,3 +330,7 @@ We will update this field with your contributions. We are testing several device
 # 7. Known Issues
  - Some machines turn off the power of a USB storage while S3 sleep and could not connect it again. In this case, please plug the USB storage into "always powered port" of your system.
  - Ubuntu 18.04 sometimes failed to find a TPM in your system. In this case, please reboot with Napper and try it again.
+ - If Secure Boot is enabled, the system cannot boot with the Napper. For testing, please disable the Secure Boot option temporarily.
+
+# 8. TODO
+ - Microsoft's devices like Surface Book 2, Surface Pro 6, Surface Laptop 2 are not supported by Ubuntu 18.04 and Kernel 4.18.0-15. Testing is needed after upgrading the kernel.
