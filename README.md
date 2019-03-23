@@ -309,6 +309,7 @@ We prepared this section for you. Please feel free to contact us.
  - Matt Oh
  - [Seong Bin Park](https://github.com/0a777h), anti-cheat engine developer and malware researcher at wellbia.com
  - [Sung Ki Park](https://facebook.com/windowstory), Microsoft MVP in Windows and device for IT
+ - [Yonghwan Roh](https://www.facebook.com/yonghwan.noh), CEO of Somma, Inc.
 
 # 6. Test Results
 We will update this field with your contributions. We are testing several devices we have and will update the result soon.
