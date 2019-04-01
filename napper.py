@@ -79,7 +79,7 @@ def check_tpm_version():
         color_print('TPM v2.0.', SUCCESS)
         tpm_version = '2.0'
     elif '1.2 TPM' in output:
-        color_print('TPM v1.2.', SUCCES)
+        color_print('TPM v1.2.', SUCCESS)
         tpm_version = '1.2'
     else:
         print 'No TPM.'

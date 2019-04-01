@@ -302,6 +302,7 @@ The root cause of CVE-2018-6622 is improper handling of an abnormal S3 sleep cas
 # 5. Contributions
 We prepared this section for you. Please feel free to contact us.
 
+ - [Bumblebee](https://twitter.com/luckygiraffe6)
  - [Gwan-gyeong Mun](https://www.facebook.com/gwangyeong.mun.0), researcher at Intel
  - [Juneseok Byun](https://www.facebook.com/byunjuneseok) at Lab, the 2nd brain & the 3rd eye of Hongik University
  - [JaeRyoung Oh](https://twitter.com/h4z3dic), CEO of Blackfort Security, Inc.
