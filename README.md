@@ -1,7 +1,7 @@
 ```
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," Napper v1.2 for TPM ," |        ,"        ,"  |
+              ," Napper v1.3 for TPM ," |        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------Z  |  |     +---------+      |
              |  |               Z |  |  |     | -==----'|      |
@@ -16,18 +16,21 @@
          / ==ooooooooooooooo==.o.  ooo= /    ,`\--{-D)  ,"
          `-----------------------------'    '----------"
 
-        Napper v1.2 for checking a TPM vulnerability, CVE-2018-6622
+ Napper v1.3 for checking a TPM vulnerability, CVE-2018-6622 and unknown CVE
          Project link: https://github.com/kkamagui/napper-for-tpm 
         Please contribute your summary report to the Napper project!                    
 ```
 
 # 1. Notice
-"Napper" is a new checking tool for a TPM vulnerability, CVE-2018-6622. CVE-2018-6622 is related to S3 sleep or suspend of Advanced Configuration and Power Interface (ACPI). The attacker can subvert the TPM with S3 sleep, and remote attestation and seal/unseal features that use Platform Configuration Registers (PCRs) can be neutralized. If you want the detailed information about CVE-2018-6622, please read our USENIX paper, [A Bad Dream: Subverting Trusted Platform Module While You Are Sleeping](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-han.pdf).
+"Napper" is a new vulnerabliity checking tool for the discrete TPM and firmware TPM (Intel PTT). CVE-2018-6622 and unkown CVE are related to the S3 sleeping state or suspend of Advanced Configuration and Power Interface (ACPI). The attacker can subvert the TPM with the S3 sleep, and remote attestation and seal/unseal features that use Platform Configuration Registers (PCRs) can be neutralized. If you want the detailed information about CVE-2018-6622 and unknown CVE, please read our USENIX paper, [A Bad Dream: Subverting Trusted Platform Module While You Are Sleeping](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-han.pdf) and Black Hat Europe 2019 presentation [BitLeaker: Subverting BitLocker with One Vulnerability](https://www.blackhat.com/eu-19/briefings/schedule/index.html#bitleaker-subverting-bitlocker-with-one-vulnerability-17245).
 
 ## 1.1. Presentation and Paper
 Napper and CVE-2018-6622 were introduced at security conferences below.
  - [Black Hat Asia 2019: Finally, I Can Sleep Tonight: Catching Sleep Mode Vulnerabilities of the TPM with the Napper](https://www.blackhat.com/asia-19/briefings/schedule/index.html#finally-i-can-sleep-tonight-catching-sleep-mode-vulnerabilities-of-the-tpm-with-the-napper-13588)
  - [USENIX Security 2018: A Bad Dream: Subverting Trusted Platform Module While You Are Sleeping](https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-han.pdf)
+
+An unknown CVE related to Intel Platform Trust Technology (PTT) was introduced at security conferences below.
+ - [BitLeaker: Subverting BitLocker with One Vulnerability](https://www.blackhat.com/eu-19/briefings/schedule/index.html#bitleaker-subverting-bitlocker-with-one-vulnerability-17245)
 
 You can watch the demo video below.
  - [![Napper v1.0 Demo](https://img.youtube.com/vi/K3ewNJuRzRM/0.jpg)](https://youtu.be/K3ewNJuRzRM)
@@ -39,7 +42,7 @@ We always welcome your contributions. Napper's summary report that you contribut
 Napper has GPL v2 license.
 
 # 2. Introduce of Napper
-Trusted Platform Module (TPM) is a tamper-resistant device and designed to provide hardware-based security functions. A TPM chip has a random number generator, non-volatile storage, encryption/decryption modules, and Platform Configuration Registers (PCRs), which can be utilized for various security applications such as BitLocker, DM-Crypt, Trusted Boot (tboot), and Open Cloud Integrity Technology (Open CIT).
+Trusted Platform Module (TPM) is a tamper-resistant device and designed to provide hardware-based or firmware-based security functions. A TPM chip has a random number generator, non-volatile storage, encryption/decryption modules, and Platform Configuration Registers (PCRs), which can be utilized for various security applications such as BitLocker, DM-Crypt, Trusted Boot (tboot), and Open Cloud Integrity Technology (Open CIT).
 
 TPM has been widely deployed in commodity devices to provide a strong foundation for building trusted platforms, especially in devices used in enterprise and government systems. Because TPM is the critical point in the trusted platform, many researchers have tried to find vulnerabilities in the TPM and concluded that it is hard to break it without physical access. However, this is not true anymore.
 
@@ -68,7 +71,7 @@ $> sync
 If you plug your USB storage and change a boot sequence to boot with it, you can see Napper's boot menu below and start Napper Live CD by selecting the first option.
 <center> <img src="image/napper_boot.png" alt="napper_boot_menu"/> </center>
 
-After the boot sequence, you can see the README.txt file on the desktop and Napper tool icon on the left dock bar. To check your system, please click the top icon of the dock bar and type `napper` for the password. Napper tool's `ID` and `password` are set to `napper`. While Napper tests your system, it will sleep your system and wake up. Therefore, you need to type a keyboard to wake your system up from ACPI S3 sleep state.
+After the boot sequence, you can see the README.txt file on the desktop and Napper tool icon on the left dock bar. To check your system, please click the top icon of the dock bar and type `napper` for the password. Napper tool's `ID` and `password` are set to `napper`. While Napper tests your system, it will sleep your system and wake up. Therefore, you need to type a keyboard to wake your system up from the ACPI S3 sleep state.
 <center> <img src="image/napper_run.png" alt="napper_run"/> </center>
 
 If your system has a TPM vulnerability, Napper will report a summary that your system is vulnerable below. If so, please move to Section 4 and share the summary to our project, Napper, through [Issue Report of Napper project](https://github.com/kkamagui/napper-for-tpm/issues) or [Website](https://kkamagui.github.io/).
@@ -93,7 +96,7 @@ After building the source code, you can run a Napper tool with a terminal. Pleas
 $> sudo ./napper.py
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," Napper v 1.0 for TPM ,"|        ,"        ,"  |
+              ," Napper v 1.3 for TPM ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------Z  |  |     +---------+      |
              |  |               Z |  |  |     | -==----'|      |
@@ -108,7 +111,7 @@ $> sudo ./napper.py
          / ==ooooooooooooooo==.o.  ooo= /    ,`\--{-D)  ,"
          `-----------------------------'    '----------"
 
-        Napper v1.0 for checking a TPM vulnerability, CVE-2018-6622
+ Napper v1.3 for checking a TPM vulnerability, CVE-2018-6622 and unknown CVE
              Made by Seunghun Han, https://kkamagui.github.io
          Project link: https://github.com/kkamagui/napper-for-tpm 
 
@@ -132,7 +135,7 @@ The result below is an example of NUC5i5MYHE model. The system has an old versio
 [sudo] password for napper: 
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," Napper v 1.0 for TPM ,"|        ,"        ,"  |
+              ," Napper v 1.3 for TPM ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------Z  |  |     +---------+      |
              |  |               Z |  |  |     | -==----'|      |
@@ -147,7 +150,7 @@ The result below is an example of NUC5i5MYHE model. The system has an old versio
          / ==ooooooooooooooo==.o.  ooo= /    ,`\--{-D)  ,"
          `-----------------------------'    '----------"
 
-        Napper v1.0 for checking a TPM vulnerability, CVE-2018-6622
+ Napper v1.3 for checking a TPM vulnerability, CVE-2018-6622 and unknown CVE
              Made by Seunghun Han, https://kkamagui.github.io
          Project link: https://github.com/kkamagui/napper-for-tpm 
 
@@ -295,9 +298,9 @@ Summary. Please contribute summary below to the Napper project, https://www.gith
 ```
 
 # 4. Mitigations
-The root cause of CVE-2018-6622 is improper handling of an abnormal S3 sleep case, and you can remove the vulnerability by following two options.
- - **Updating the latest BIOS firmware to your system**: We reported CVE-2018-6622 to major manufacturers such as Intel, Dell, and Lenovo, and they already released new firmware. If you are still vulnerable after updating the latest BIOS, please try the next option below and contribute your summary report.
- - **Disable S3 sleep feature in your BIOS**: Recent BIOS firmware has a feature that disables S3 sleep for several reasons. Therefore, please enter your BIOS setup and disable S3 sleep.
+The root cause of CVE-2018-6622 and unknown CVE is improper handling of an abnormal S3 sleep case, and you can remove the vulnerability by following two options.
+ - **Updating the latest BIOS firmware to your system**: We reported the CVE-2018-6622 to major manufacturers such as Intel, Dell, and Lenovo. We also reported the unknown CVE of Intel PTT to Intel. For fixing them, the manufacturer already released new firmware. If you are still vulnerable after updating the latest BIOS, please try the next option below and contribute your summary report.
+ - **Disable the S3 sleep feature in your BIOS**: Recent BIOS firmware has a feature that disables the S3 sleep for several reasons. Therefore, please enter your BIOS setup and disable the S3 sleep.
 
 # 5. Contributions
 We prepared this section for you. Please feel free to contact us.
@@ -330,7 +333,7 @@ We will update this field with your contributions. We are testing several device
  
 
 # 7. Known Issues
- - Some machines turn off the power of a USB storage while S3 sleep and could not connect it again. In this case, please plug the USB storage into "always powered port" of your system.
+ - Some machines turn off the power of a USB storage while the S3 sleep and could not connect it again. In this case, please plug the USB storage into "always powered port" of your system.
  - Ubuntu 18.04 sometimes failed to find a TPM in your system. In this case, please reboot with Napper and try it again.
  - If Secure Boot is enabled, the system cannot boot with the Napper. For testing, please disable the Secure Boot option temporarily.
 

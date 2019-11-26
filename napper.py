@@ -36,7 +36,7 @@ def show_banner():
     banner = """\
                      ,----------------,              ,---------,
                 ,-----------------------,          ,"        ,"|
-              ," """ + GREEN + 'Napper v 1.2 for TPM' + ENDC + """ ,"|        ,"        ,"  |
+              ," """ + GREEN + 'Napper v 1.3 for TPM' + ENDC + """ ,"|        ,"        ,"  |
              +-----------------------+  |      ,"        ,"    |
              |  .-----------------""" + GREEN + BLINK + 'Z' + ENDC + """  |  |     +---------+      |
              |  |               """ + GREEN + BLINK + 'Z' + ENDC + """ |  |  |     | -==----'|      |
@@ -52,7 +52,7 @@ def show_banner():
          `-----------------------------'    '----------"
 
 """ + \
-    GREEN + '        Napper v1.2 for checking a TPM vulnerability, CVE-2018-6622\n' + ENDC + \
+    GREEN + 'Napper v1.3 for checking a TPM and Intel PTT vulnerability, CVE-2018-6622 and unknown CVE\n' + ENDC + \
     '             Made by Seunghun Han, https://kkamagui.github.io\n' + \
     '         Project link: https://github.com/kkamagui/napper-for-tpm \n'
     print banner
@@ -81,6 +81,9 @@ def check_tpm_version():
     elif '1.2 TPM' in output:
         color_print('TPM v1.2.', SUCCESS)
         tpm_version = '1.2'
+    elif 'ACPI: TPM2' in output:
+        color_print('Intel PTT.', SUCCESS)
+        tpm_version = '2.0'
     else:
         print 'No TPM.'
 
