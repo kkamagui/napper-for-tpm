@@ -121,7 +121,7 @@ def check_and_run_resource_manager():
     return 0
 
 #
-# Check if the resource manager is running and run it.
+# Check if the TPM vulnerability testing module is running and run it.
 #
 def check_and_run_vuln_testing_module():
     print '    [*] Checking the TPM vulnerability testing module...',
