@@ -137,7 +137,7 @@ def check_and_run_vuln_testing_module():
         return 0
 
     try:
-        subprocess.call('insmod napper-driver/napper.ko', shell=True)
+        subprocess.check_call('insmod napper-driver/napper.ko', shell=True)
         color_print("Starting.", SUCCESS)
     except:
         color_print("Fail.", FAIL)
