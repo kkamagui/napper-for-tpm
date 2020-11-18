@@ -137,10 +137,14 @@ def check_and_run_vuln_testing_module():
         return 0
 
     try:
-        subprocess.call('insmod napper-driver/napper.ko', shell=True)
+        subprocess.check_call('insmod napper-driver/napper.ko', shell=True)
         color_print("Starting.", SUCCESS)
     except:
         color_print("Fail.", FAIL)
+        print 'You might need to disable lockdown mode with'
+        print ''
+        print '     echo 1 > /proc/sys/kernel/sysrq'
+        print '     echo x > /proc/sysrq-trigger'
         return -1
  
     return 0
